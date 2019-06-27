@@ -15,18 +15,6 @@ $(document).ready(function() {
 		$('.error').show().text(e);
 	}
 
-	$('.js-ripples-disable').on('click', function() {
-		$('body, .myImg').ripples('destroy');
-		$(this).hide();
-	});
-
-	$('.js-ripples-play').on('click', function() {
-		$('body, .myImg').ripples('play');
-	});
-
-	$('.js-ripples-pause').on('click', function() {
-		$('body, .myImg').ripples('pause');
-	});
 
 	// Automatic drops
 	setInterval(function() {

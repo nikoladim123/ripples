@@ -4,3 +4,13 @@
   background-size: 100% 100%;
   background-image: url('applicationDevelopment.jpg');
 }
+.imgholder{
+  position: relative;
+}
+
+body{
+  position: relative;
+  height: 100vh;
+  background-size: 100% 100%;
+  background-image: url('applicationDevelopment.jpg');
+}

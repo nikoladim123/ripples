@@ -1,25 +1,41 @@
-$('.myImg').ripples({
-  resolution: 512,
-  dropRadius: 20, //px
-  perturbance: 0.54,
-  imageUrl:null
+$(document).ready(function() {
+	try {
+		$('body').ripples({
+			resolution: 512,
+			dropRadius: 20, //px
+			perturbance: 0.04
+		});
+		$('.myImg').ripples({
+			resolution: 512,
+			dropRadius: 20, //px
+			perturbance: 0.04
+		});
+	}
+	catch (e) {
+		$('.error').show().text(e);
+	}
+
+	$('.js-ripples-disable').on('click', function() {
+		$('body, .myImg').ripples('destroy');
+		$(this).hide();
+	});
+
+	$('.js-ripples-play').on('click', function() {
+		$('body, .myImg').ripples('play');
+	});
+
+	$('.js-ripples-pause').on('click', function() {
+		$('body, .myImg').ripples('pause');
+	});
+
+	// Automatic drops
+	setInterval(function() {
+		var $el = $('.myImg');
+		var x = Math.random() * $el.outerWidth();
+		var y = Math.random() * $el.outerHeight();
+		var dropRadius = 20;
+		var strength = 0.04 + Math.random() * 0.04;
+
+		$el.ripples('drop', x, y, dropRadius, strength);
+	}, 400);
 });
-
-// show the effect
-$('.myImg').ripples('show');
-
-// hide the effect
-$('.myImg').ripples('hide');
-
-// destroy the plugin
-$('.myImg').ripples('destroy');
-
-// play the simulation's state
-$('.myImg').ripples('play');
-
-// pause the simulation's state
-$('.myImg').ripples('pause');
-
-// add a drop at the element's relative coordinates (x, y).
-// radius controls the drop's size and strength the amplitude of the resulting ripple.
-// $('.myImg').ripples('drop', x, y, radius, strength);
